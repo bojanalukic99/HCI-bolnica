@@ -1,0 +1,2 @@
+5|Brufen|600mg|sastav|sve uredu|Aspirin|False|
+6|Paracetamol|550mg|sastav|dobar|zamena|False|

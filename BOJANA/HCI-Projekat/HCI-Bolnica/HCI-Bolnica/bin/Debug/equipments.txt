@@ -1,0 +1,4 @@
+1|Stolica|Static|68|stolar|1|
+2|Sto|Static|85|stolar|1|
+3|Rengen|Static|8|lkl|2|
+4|Infuzija|Static|14|oioo|2|

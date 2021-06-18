@@ -1,0 +1,61 @@
+﻿<Page x:Class="HCI_Bolnica.Dialogues.View.RenovationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Bolnica.Dialogues.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="RenovationPage">
+    <Page.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="Z" Command="{Binding RenovationCommand}" />
+        <KeyBinding Modifiers="Ctrl" Key="S" Command="{Binding ConnectingRoomsCommand}"  />
+        <KeyBinding Modifiers="Ctrl" Key="D" Command="{Binding DivideTheRoomCommand}"/>
+    </Page.InputBindings>
+    <Grid>
+        <Label Content="RASPORED RENOVIRANJA" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="35,10,190,0" Width="375"/>
+        <Button Command="{Binding ReportCommand}" Background="White" Margin="491,0,10,290.4">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Izveštaj</TextBlock>
+                <Image Source="izvestaj.png" Width="38"/>
+            </StackPanel>
+        </Button>
+        <Label Content="OD:" Margin="47,62,526,246.4" RenderTransformOrigin="0.462,0.733"/>
+        <DatePicker SelectedDate="{Binding StartOfRenovation}" Margin="77,62,451,248.4"/>
+        <Label Content="DO:" Margin="204,60,372,248.4" RenderTransformOrigin="0.462,0.733"/>
+        <DatePicker SelectedDate="{Binding EndOfRenovation}" Margin="233,61,285,249.4" />
+        <Button Command="{Binding SearchCommand}" FontSize="20" Background="White"  HorizontalAlignment="Left" Width="64"  Margin="397,55,0,249.4" >
+            <StackPanel>
+                <Image Source="search1.png" Height="21" Width="25"/>
+            </StackPanel>
+        </Button>
+        <DataGrid ItemsSource="{Binding Renovations}" Name="dataGridRoom" AutoGenerateColumns="False"
+                  Height="155" Margin="21,103,10,0" VerticalAlignment="Top">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Broj Prostorije" Width="*" Binding="{Binding Room}"/>
+
+                <DataGridTextColumn Header="Datum pocetka" Width="*" Binding="{Binding DateOfRenovationStart}"/>
+
+                <DataGridTextColumn Header="Datum zavrsetka" Width="*" Binding="{Binding DateOfRenovationEnd}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button ToolTip="zakazi obicno renoviranje(CTRL+A)" Command="{Binding RenovationCommand}" Background="White"  Margin="25,278,440,10.4" FontSize="20">
+            <StackPanel Orientation="Horizontal" Height="39">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Renoviraj"/></TextBlock>
+                <Image Source="renovation.png"/>
+            </StackPanel>
+        </Button>
+        <Button ToolTip="zakazi spajanje soba(CTRL+C)" Command="{Binding ConnectingRoomsCommand}" Background="White"  Margin="233,278,232,10.4" FontSize="20">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Spajanje soba"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button ToolTip="zakazi deljenje sobe(CTRL+D)" Command="{Binding DivideTheRoomCommand}" Background="White"  Margin="452,278,13,10.4" FontSize="20">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Deljenje sobe"/></TextBlock>
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Page>

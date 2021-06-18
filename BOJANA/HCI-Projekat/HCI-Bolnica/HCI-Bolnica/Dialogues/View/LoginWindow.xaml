@@ -1,0 +1,17 @@
+﻿<Window x:Class="HCI_Bolnica.Dialogues.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Bolnica.Dialogues.View"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800" Background="LightBlue">
+    <Grid>
+        <Label Content="PRIJAVA" FontSize="40" Margin="319,40,319.6,315"/>
+        <Label Content="Korisnicko ime:" FontSize="30" Margin="62,147,519.6,221"/>
+        <TextBox x:Name="txtUsername" Margin="335,156,143.6,225"/>
+        <Label Content="Lozinka:" FontSize="30" Margin="156,205,518.6,163"/>
+        <TextBox x:Name="txtPassword" Margin="335,208,143.6,173"/>
+        <Button Content="Prijavi se" Command="{Binding LoginCommad}" FontSize="30" Margin="483,316,143.6,34" Background="White" />
+    </Grid>
+</Window>

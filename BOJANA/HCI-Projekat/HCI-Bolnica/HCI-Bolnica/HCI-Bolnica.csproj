@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6BFEEE5C-B14E-4CC9-9308-316AFE968484}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HCI_Bolnica</RootNamespace>
+    <AssemblyName>HCI-Bolnica</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.barcodes, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.barcodes.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.forms, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.forms.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.io, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.io.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.kernel, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.kernel.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.layout, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.layout.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.pdfa, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.pdfa.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.sign, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.sign.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.styledxmlparser, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.styledxmlparser.dll</HintPath>
+    </Reference>
+    <Reference Include="itext.svg, Version=7.1.15.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itext7.7.1.15\lib\net45\itext.svg.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AddInRoomWindow.xaml.cs">
+      <DependentUpon>AddInRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\Model\ComboData.cs" />
+    <Compile Include="Dialogues\ViewModel\ConnectingRoomsViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\DivideTheRoomViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\WizardViewModel.cs" />
+    <Compile Include="Dialogues\View\ConnectingRoomsWindow.xaml.cs">
+      <DependentUpon>ConnectingRoomsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\DivideTheRoom.xaml.cs">
+      <DependentUpon>DivideTheRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\WizardWindow.xaml.cs">
+      <DependentUpon>WizardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Renovation.cs" />
+    <Compile Include="Model\WizardSteps.cs" />
+    <Compile Include="Repository\AccountRepository.cs" />
+    <Compile Include="Repository\AppointmentRepository.cs" />
+    <Compile Include="Repository\DoctorRepository.cs" />
+    <Compile Include="Repository\EquipmentRepository.cs" />
+    <Compile Include="Repository\ManagerRepository.cs" />
+    <Compile Include="Repository\MedicineRepository.cs" />
+    <Compile Include="Repository\PatientRepozitory.cs" />
+    <Compile Include="Repository\RenovationRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\RoomRepository.cs" />
+    <Compile Include="Repository\StaffRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Validation\ComboBoxValidationRule.cs" />
+    <Compile Include="Validation\DateFormatValidationRule.cs" />
+    <Compile Include="Validation\EmptyStringValidationRule.cs" />
+    <Compile Include="Validation\IntOnlyNumbersValidationRule.cs" />
+    <Compile Include="Validation\JustNumbersValidationRule.cs" />
+    <Compile Include="Validation\OnlyLetterValidationRule.cs" />
+    <Page Include="AddInRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\AddEquipmentInRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\AddEquipmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\AddMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\AddRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\ConnectingRoomsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\DivideTheRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\EditEquipmentInRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\EditEquipmentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\EditMedicineWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\EditRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\Equipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\EquipmentInRoomWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\MedicinePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\RenovationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\RenovationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\RoomPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\VacationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogues\View\WizardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CompositeComon\DateTimeHelper.cs" />
+    <Compile Include="CompositeComon\RelayCommand.cs" />
+    <Compile Include="CompositeComon\ViewModelBase.cs" />
+    <Compile Include="Core\Irepository.cs" />
+    <Compile Include="Dialogues\ViewModel\AddEquipmentInRoomViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\AddEquipmentViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\AddMedicineViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\AddRoomViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\EditEquipmentInRoomViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\EditEquipmentViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\EditMedicineViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\EditRoomViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\EquipmentDisplayViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\EquipmentViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\HomePageViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\LoginViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\ManagerViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\MedicinePageViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\RenovationViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\RenovationWindowViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\RoomViewModel.cs" />
+    <Compile Include="Dialogues\ViewModel\VacationViewModel.cs" />
+    <Compile Include="Dialogues\View\AddEquipmentInRoomWindow.xaml.cs">
+      <DependentUpon>AddEquipmentInRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\AddEquipmentWindow.xaml.cs">
+      <DependentUpon>AddEquipmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\AddMedicineWindow.xaml.cs">
+      <DependentUpon>AddMedicineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\AddRoomWindow.xaml.cs">
+      <DependentUpon>AddRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\EditEquipmentInRoomWindow.xaml.cs">
+      <DependentUpon>EditEquipmentInRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\EditEquipmentWindow.xaml.cs">
+      <DependentUpon>EditEquipmentWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\EditMedicineWindow.xaml.cs">
+      <DependentUpon>EditMedicineWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\EditRoomWindow.xaml.cs">
+      <DependentUpon>EditRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\Equipment.xaml.cs">
+      <DependentUpon>Equipment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\EquipmentInRoomWindow.xaml.cs">
+      <DependentUpon>EquipmentInRoomWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\ManagerWindow.xaml.cs">
+      <DependentUpon>ManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\MedicinePage.xaml.cs">
+      <DependentUpon>MedicinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\RenovationPage.xaml.cs">
+      <DependentUpon>RenovationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\RenovationWindow.xaml.cs">
+      <DependentUpon>RenovationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\RoomPage.xaml.cs">
+      <DependentUpon>RoomPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogues\View\VacationPage.xaml.cs">
+      <DependentUpon>VacationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\ApplicationContext.cs" />
+    <Compile Include="Model\Appointment.cs" />
+    <Compile Include="Model\AppointmentType.cs" />
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\Equipment.cs" />
+    <Compile Include="Model\EquipmentType.cs" />
+    <Compile Include="Model\Manager.cs" />
+    <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\RoomType.cs" />
+    <Compile Include="Model\Specialization.cs" />
+    <Compile Include="Model\Staff.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CompositeComon\Converters\" />
+    <Folder Include="CompositeComon\Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\upravnik.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\room.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\renovation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\medicine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\equipment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\equipment2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\main.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\wizard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\next1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Dialogues\View\izvestaj.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

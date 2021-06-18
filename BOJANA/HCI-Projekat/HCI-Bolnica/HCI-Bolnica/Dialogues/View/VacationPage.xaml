@@ -1,0 +1,25 @@
+﻿<Page x:Class="HCI_Bolnica.Dialogues.View.VacationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Bolnica.Dialogues.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="320" d:DesignWidth="600"
+      Title="VacationPage" >
+
+    <Grid>
+        <Label Content="Zahtevi za godisnji odmor" FontSize="20" Margin="10,25,327,245"/>
+        <TextBox x:Name="search" Margin="278,37,125,245"/>
+        <Button Margin="480,37,10,245" Content="Pretrazi" Background="White" FontSize="20"/>
+        <DataGrid Margin="10,94,10,39">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Podnosilac zahteva" Width="*"/>
+                <DataGridTextColumn Header="Pocetak" Width="*"/>
+                <DataGridTextColumn Header="Kraj" Width="*"/>
+                <DataGridTextColumn Header="Prihvacen" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Command="{Binding OkCommand}" Margin="185,286,161,6" Content="Prihvati selektovani zahtev" Background="White" FontSize="20"/>
+    </Grid>
+</Page>

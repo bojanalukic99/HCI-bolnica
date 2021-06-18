@@ -1,0 +1,21 @@
+﻿<Window x:Class="HCI_Bolnica.AddInRoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI_Bolnica"
+        mc:Ignorable="d"
+        Title="AddInRoomWindow" Height="350" Width="600">
+    <Grid>
+        <Label Content="Dodaj opremu u prostoriju" FontSize="30" Margin="113,10,103.6,255.8"/>
+        <Label Content="Prostorija:" FontSize="20" Margin="149,101,331.6,173.8"/>
+        <ComboBox  Name="cmbRoom" Margin="267,101,95,182" >
+            <ComboBoxItem Content="1"/>
+        </ComboBox>
+        <Label Content="Kolicina:" FontSize="20" Margin="166,164,332,111"/>
+        <TextBox Text="{Binding SelectedItem.Quantity}" Margin="267,164,95,124" Name="txtAmount"/>
+        <Button Content="Dodaj" Command="{Binding OkCommand}" Background="White"  Name="btnConfirm" HorizontalAlignment="Left" Height="59" Margin="113,236,0,0" VerticalAlignment="Top" Width="181" FontSize="20" FontWeight="Bold"/>
+        <Button Content="Odustani" Command="{Binding CancelCommand}" Name="btnCancellations" Background="White" HorizontalAlignment="Left" Height="59" Margin="320,236,0,0" VerticalAlignment="Top" Width="179" FontSize="20" FontWeight="Bold"/>
+
+    </Grid>
+</Window>

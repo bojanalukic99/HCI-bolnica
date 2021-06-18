@@ -1,0 +1,45 @@
+﻿<Page x:Class="HCI_Bolnica.Dialogues.View.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Bolnica.Dialogues.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="600"
+      Title="HomePage" Background="Transparent">
+
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,0.4">
+
+        <Image Stretch="Fill" Source="upravnik.jpg" Margin="0,0,408,179.4"/>
+        <TextBlock Margin="247,0,10,179" FontSize="15" Text="Informacije o upravniku" />
+        <TextBlock Margin="247,22,10,162" FontSize="15" Text="Ime: Elena" />
+        <TextBlock Margin="247,46,10,173" FontSize="15" Text="Prezime: Mitrović" />
+        <TextBlock Margin="247,73,10,183" FontSize="15" Text="JMBG:1109695856" />
+        <TextBlock Margin="247,95,10,164" FontSize="15" Text="Adresa:Bulevar oslobođenja 56" />
+        <TextBlock Margin="246,121,11,182" FontSize="15" Text="Broj telefona: 063589658" />
+        <TextBlock Margin="247,146,10,167" FontSize="15" Text="E-mail:mitrovice@gmail.com" />
+        <TextBlock FontSize="15" Margin="0,188,10,0.4">
+            Dobrodošli gospođo Elena,
+        </TextBlock>
+        <TextBlock FontSize="15" Margin="0,209,36,10">
+            ukoliko Vam je potrebna pomoć prilikom snalaženja sa aplikacijom možete pritisnuti
+        </TextBlock>
+        <TextBlock FontSize="15" Margin="0,234,68,0">
+         sa WIZARD ikonu, u donjem desnom uglu, kako bi prošli kroz kratku obuku rada
+        </TextBlock>
+        <TextBlock FontSize="15" Margin="0,263,276,0">
+            sa aplikacijom.
+        </TextBlock>
+        <TextBlock FontSize="15" Margin="0,291,251,0">
+           Nadamo se da ćete uživati koristeći našu aplikaciju!
+        </TextBlock>
+        <TextBlock FontSize="15" Margin="0,315,434,0">
+           Želimo Vam srećan rad!
+        </TextBlock>
+        <Button Command="{Binding WizardCommand}" Margin="533,294,10,10" Background="Transparent">
+            <StackPanel>
+                <Image Source="wizard.png" Height="43" Width="65"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

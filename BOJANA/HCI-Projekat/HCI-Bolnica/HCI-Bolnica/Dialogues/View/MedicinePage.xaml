@@ -1,0 +1,74 @@
+﻿<Page x:Class="HCI_Bolnica.Dialogues.View.MedicinePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Bolnica.Dialogues.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="350" d:DesignWidth="580"
+      Title="MedicinePage" >
+    <Page.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding AddMedicineCommand}" />
+        <KeyBinding Modifiers="Ctrl" Key="E" Command="{Binding EditMedicineCommand}"  />
+        <KeyBinding Modifiers="Ctrl" Key="D" Command="{Binding DeleteMedicineCommand}"/>
+    </Page.InputBindings>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="17*"/>
+        </Grid.ColumnDefinitions>
+        <Label HorizontalAlignment="Center" FontSize="30" Margin="27,-4,354.2,285.4" Width="114">Lekovi</Label>
+        <TextBox TextAlignment="Center" Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}"  x:Name="txtSearch" Margin="383,33,10.2,271.4"/>
+        <Button FontSize="20" Background="White"  HorizontalAlignment="Left" Width="45"  Margin="0.8,32,0,271.4" Grid.Column="1" >
+            <StackPanel>
+                <Image Source="search1.png" Height="25" Width="28"/>
+            </StackPanel>
+        </Button>
+        <TabControl Margin="27,65,39,87.4" Grid.ColumnSpan="2" >
+            <TabItem  Name="tabUncertified" Header="Neovereni lekovi">
+                <DataGrid ItemsSource="{Binding Medicines}" Name="dataGridUncertified" SelectedItem="{Binding SelectedItem}" 
+                          AutoGenerateColumns="False" HorizontalAlignment="Center" Margin="0,19,-7.2,18.4" Width="516" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="ID" Binding="{Binding ID}" />
+                        <DataGridTextColumn Width="*" Header="Naziv" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Width="*" Header="Sastav" Binding="{Binding Composition}"/>
+                        <DataGridTextColumn Width="*" Header="Kolicina[mg]" Binding="{Binding Grams}" />
+                        <DataGridTextColumn Width="*" Header="Zamena" Binding="{Binding Replacment}"/>
+                        <DataGridTextColumn Width="*" Header="Komentar" Binding="{Binding Comment}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem  Name="tabCertified" Header="Overeni lekovi">
+                <DataGrid ItemsSource="{Binding MedicinesApproved}" Name="dataGridCertified" AutoGenerateColumns="False" SelectedItem="{Binding SelectedItem}" 
+                  SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Center" Margin="0,9,-17.2,18.4" Width="526" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="*" Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Width="*" Header="Naziv" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Width="*" Header="Sastav" Binding="{Binding Composition}"/>
+                        <DataGridTextColumn Width="*" Header="Kolicina[mg]" Binding="{Binding Grams}"/>
+                        <DataGridTextColumn Width="*" Header="Zamena" Binding="{Binding Replacment}"/>
+                        <DataGridTextColumn Width="*" Header="Komentar" Binding="{Binding Comment}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+        <Button ToolTip="dodaj lek(CTRL+A)"  Command="{Binding AddMedicineCommand}" FontSize="20" Background="White" Margin="27,276,374.2,10.4" RenderTransformOrigin="0.5,0.5" >
+            <StackPanel Orientation="Horizontal" Width="86" Height="33">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Dodaj</TextBlock>
+                <Image Source="add.png"/>
+            </StackPanel>
+        </Button>
+        <Button ToolTip="izmeni (CTRL+E)" Command="{Binding EditMedicineCommand}" FontSize="20" Background="White" Margin="246,276,156.2,10.4">
+            <StackPanel Orientation="Horizontal" Height="27" Width="96">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center">Izmeni</TextBlock>
+                <Image Source="edit.png"/>
+            </StackPanel>
+        </Button>
+        <Button ToolTip="obrisi(CTRL+D)" Command="{Binding DeleteMedicineCommand}" FontSize="20" Background="White" Margin="453,276,39,10.4" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" Height="35" Width="94">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Width="55" Height="31" Margin="0,4,0,0.2">Obrisi</TextBlock>
+                <Image Source="delete.png"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Page>

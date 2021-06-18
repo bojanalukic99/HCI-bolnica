@@ -1,0 +1,73 @@
+﻿<Page x:Class="HCI_Bolnica.Dialogues.View.RoomPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCI_Bolnica.Dialogues.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600" 
+      Title="RoomPage" >
+    <Page.InputBindings>
+        <KeyBinding Modifiers="Ctrl" Key="A" Command="{Binding AddRoomCommand}" />
+        <KeyBinding Modifiers="Ctrl" Key="E" Command="{Binding EditRoomCommand}"  />
+        <KeyBinding Modifiers="Ctrl" Key="D" Command="{Binding DeleteRoomCommand}"/>
+        <KeyBinding Modifiers="Ctrl" Key="O" Command="{Binding EquipmentCommand}"/>
+    </Page.InputBindings>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Prostorije" FontSize="30" Margin="0,0,438,168.8"/>
+        <TextBox TextAlignment="Center"   Text="{Binding SearchTerm, UpdateSourceTrigger=PropertyChanged}" x:Name="txtSearch" Margin="403,10,75,212.8" RenderTransformOrigin="0.484,0.447"/>
+        <Button FontSize="20" Background="White"  HorizontalAlignment="Left" Width="38"  Margin="541,10,0,212.8" >
+            <StackPanel>
+                <Image Source="search1.png" Height="18" Width="33"/>
+            </StackPanel>
+        </Button>
+        <DataGrid ItemsSource="{Binding Rooms}" Name="dataGridRoom" SelectedItem="{Binding SelectedItem}" AutoGenerateColumns="False"
+                  SelectionMode="Single" IsReadOnly="True" HorizontalAlignment="Center"
+                  Height="174" Margin="3,62,-1,0" VerticalAlignment="Top" Width="598" RenderTransformOrigin="0.5,0.5">
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.157"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id Prostorije" Binding="{Binding ID}" Width="*"/>
+                <DataGridTextColumn Header="Sprat Prostorije" Binding="{Binding Floor}" Width="*" />
+                <DataGridTextColumn Header="Vrsta Prostorije" Binding="{Binding RoomType}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="92" Margin="-11,0,0,-0.4" Width="500" Grid.Row="1">
+            <Button ToolTip="dodaj prostoriju(CTRL+A)"  Command="{Binding AddRoomCommand}" Width="76" HorizontalAlignment = "Center" Margin="20,34,20,10" Background="White">
+                <StackPanel Orientation="Horizontal" Height="27" Width="75">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,6,0,5.2" Width="36">Dodaj</TextBlock>
+                    <Image Source="add.png" Height="27" Width="33"/>
+                </StackPanel>
+            </Button>
+            <Button ToolTip="izmeni prostoriju(CTRL+E)" Command="{Binding EditRoomCommand}" Width="80" HorizontalAlignment = "Center" Margin="20,34,20,10" Background="White" >
+                <StackPanel Orientation="Horizontal" Height="27" Width="75">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,6,0,5.2" Width="36">Izmeni</TextBlock>
+                    <Image Source="edit.png" Height="27" Width="33"/>
+                </StackPanel>
+            </Button>
+            <Button ToolTip="obrisi prostoriju(CTRL+D)" Command="{Binding DeleteRoomCommand}" Width="80" HorizontalAlignment = "Center" Margin="20,34,20,10" Background="White" >
+                <StackPanel Orientation="Horizontal" Height="27" Width="75">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,6,0,5.2" Width="36"><Run Text="Obrisi"/></TextBlock>
+                    <Image Source="delete.png" Height="27" Width="33"/>
+                </StackPanel>
+            </Button>
+            <Button ToolTip="uvid u opremu selektovane prostrije(CTRL+O)" Command="{Binding EquipmentCommand}" Width="87" HorizontalAlignment = "Center" Margin="20,34,20,10" Background="White" >
+                <StackPanel Orientation="Horizontal" Height="37" Width="87">
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,8,0,6.8" Width="44" Height="22"><Run Text="Oprema"/></TextBlock>
+                    <Image Source="equipment2.png" Width="40" Margin="0,0,0,6.8"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

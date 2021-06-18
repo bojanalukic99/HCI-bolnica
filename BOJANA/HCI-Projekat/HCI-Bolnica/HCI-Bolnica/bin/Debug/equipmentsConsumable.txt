@@ -1,0 +1,3 @@
+4|flaster|Static|55|stolar|1|
+5|zavoj|Static|66|stolar|1|
+6|stapici|Consumable|loo|4|2|
